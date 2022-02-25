@@ -1,0 +1,15 @@
+= simple_form_for(@task) do |f|
+ 
+  = f.label      "Task Title"
+  = f.text_field :title
+  br
+  = f.label      "Description" 
+  = f.text_area :description
+  br
+  = f.label      "Company"
+  = f.text_field :company
+  br
+  = f.label      "Url"
+  = f.text_field :url
+  br
+  = f.submit
