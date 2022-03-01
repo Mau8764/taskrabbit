@@ -1,14 +1,15 @@
 h2 Tasks
 ul
-  - @tasks.each do |task|
-      br
-      div
-        h2 = link_to task.title, task
-      div
-        | Description: 
-        = task.description
-      div
-        | Company: 
-        = task.company
+  #jobs
+    - @tasks.each do |task|
+        br
+        div
+          h2 = link_to task.title, task
+        div
+          | Description: 
+          = task.description
+        div
+          | Company: 
+          = task.company
 
 = link_to "New Task", new_task_path, class: "btn btn-primary"
