@@ -2,7 +2,12 @@ class TasksController < ApplicationController
   before_action :find_task, only: [:edit, :update, :show, :destroy]
 
   def index
-    @tasks = Task.all
+    if params[:category].blank?
+      @tasks = Task.all
+    else
+      category_id = Category.find_by_name(params[:category]).id
+      @tasks = Task.where(category_id: category_id)
+    end
   end
 
   def show
@@ -42,7 +47,7 @@ class TasksController < ApplicationController
   private
 
   def tasks_params
-    params.require(:task).permit(:title, :description, :company, :url)
+    params.require(:task).permit(:title, :description, :company, :url, :category_id)
   end
 
   def find_task

@@ -5,6 +5,9 @@ ul
       | Name: 
       = @task.title
     div
+      | Caterogy: 
+      = @task.category&.name
+    div
       | Description: 
       = @task.description
     div

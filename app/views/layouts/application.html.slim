@@ -1,0 +1,16 @@
+doctype html
+html
+  head
+    title Rabbit
+    meta name="viewport" content="width=device-width,initial-scale=1"
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag "application", "data-turbo-track": "reload"
+    = javascript_importmap_tags
+    javascript:
+      alert("Welcome")
+
+  body
+    - Category.all.each do |category|
+      = link_to category.name, tasks_path(category: category.name)
+    == yield

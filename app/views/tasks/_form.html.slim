@@ -1,5 +1,8 @@
 = simple_form_for(@task) do |f|
- 
+  = f.label      "Category"
+  = f.collection_select :category_id, Category.all, :id, :name, { prompt: "Choose a Category"}
+  br
+
   = f.label      "Task Title"
   = f.text_field :title
   br
